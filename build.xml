@@ -1,0 +1,22 @@
+<project name="HelloWorldProject" default="compile" basedir=".">
+
+    <property name="src" location="src"/>
+    <property name="build" location="build"/>
+
+    <!-- Clean old build -->
+    <target name="clean">
+        <delete dir="${build}"/>
+    </target>
+
+    <!-- Compile Java files -->
+    <target name="compile">
+        <mkdir dir="${build}"/>
+        <javac srcdir="${src}" destdir="${build}"/>
+    </target>
+
+    <!-- Run the program -->
+    <target name="run" depends="compile">
+        <java classname="HelloWorld" classpath="${build}"/>
+    </target>
+
+</project>
